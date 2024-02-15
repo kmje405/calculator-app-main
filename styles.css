@@ -1,0 +1,140 @@
+/* Importing necessary CSS files and fonts */
+@import "./styleReset.css"; /* Resets default browser styling */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap'); 
+
+/* Root Variables: Defining CSS variables for easy theme management */
+:root {
+    /* Layout widths for responsive design */
+    --mobile-width: 375px;
+    --desktop-width: 1440px;
+
+    /* Theme 1 Colors */
+    --theme1-bg-main: hsl(222, 26%, 31%);
+    --theme1-bg-toggle-keypad: hsl(223, 31%, 20%);
+    --theme1-bg-screen: hsl(224, 36%, 15%);
+    --theme1-key-bg: hsl(225, 21%, 49%);
+    --theme1-key-shadow: hsl(224, 28%, 35%);
+    --theme1-key-bg-red: hsl(6, 63%, 50%);
+    --theme1-key-shadow-red: hsl(6, 70%, 34%);
+    --theme1-key-bg-light-gray-orange: hsl(30, 25%, 89%);
+    --theme1-key-shadow-gray-orange: hsl(28, 16%, 65%);
+    --theme1-text-dark-gray-blue: hsl(221, 14%, 31%);
+    --theme1-text-white: hsl(0, 0%, 100%);
+
+    /* Theme 2 Colors */
+    --theme2-bg-main: hsl(0, 0%, 90%);
+    --theme2-bg-toggle-keypad: hsl(0, 5%, 81%);
+    --theme2-bg-screen: hsl(0, 0%, 93%);
+    --theme2-key-bg-cyan: hsl(185, 42%, 37%);
+    --theme2-key-shadow-cyan: hsl(185, 58%, 25%);
+    --theme2-key-bg-orange: hsl(25, 98%, 40%);
+    --theme2-key-shadow-orange: hsl(25, 99%, 27%);
+    --theme2-key-bg-light-gray-yellow: hsl(45, 7%, 89%);
+    --theme2-key-shadow-dark-gray-orange: hsl(35, 11%, 61%);
+    --theme2-text-dark-gray-yellow: hsl(60, 10%, 19%);
+    --theme2-text-white: hsl(0, 0%, 100%);
+
+    /* Theme 3 Colors */
+    --theme3-bg-main: hsl(268, 75%, 9%);
+    --theme3-bg-toggle-keypad-screen: hsl(268, 71%, 12%);
+    --theme3-key-bg-violet: hsl(281, 89%, 26%);
+    --theme3-key-shadow-magenta: hsl(285, 91%, 52%);
+    --theme3-key-bg-cyan: hsl(176, 100%, 44%);
+    --theme3-key-shadow-cyan: hsl(177, 92%, 70%);
+    --theme3-key-bg-dark-violet: hsl(268, 47%, 21%);
+    --theme3-key-shadow-dark-magenta: hsl(290, 70%, 36%);
+    --theme3-text-light-yellow: hsl(52, 100%, 62%);
+    --theme3-text-dark-blue: hsl(198, 20%, 13%);
+    --theme3-text-white: hsl(0, 0%, 100%);
+
+    /* Typography Variables */
+    --font-size-numbers: 32px;
+    --font-family-league-spartan: 'League Spartan', sans-serif;
+    --font-weight-bold: 700;
+}
+
+/* Base Body Styles */
+body {
+    background-color: var(--theme1-bg-main);
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: var(--font-family-league-spartan);
+    font-weight: bold; /* Using the bold font weight */
+}
+
+/* Calculator Styling */
+.calculator {
+    background-color: var(--theme1-bg-screen);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 600px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    border-radius: 2rem;
+    font-family: var(--font-family-league-spartan);
+}
+
+.calculator h1 {
+    font-size: 2rem;
+    color: var(--theme1-text-white);
+}
+
+/* Calculator Screen Styling */
+#display {
+    width: 100%; /* Makes the display take up 100% of the parent's width */
+    max-width: 100%; /* Ensures it does not exceed the parent's width */
+    box-sizing: border-box; /* Ensures padding does not add to the outer width */
+    /* Additional styling for display (e.g., background, text alignment) */
+    color: var(--theme1-text-white); /* Text color */
+    text-align: right; /* Aligns the text to the right */
+    border-radius: 0 0.5rem; /* Optional: Adds rounded corners */
+    overflow: hidden; /* Prevents content from overflowing */
+    font-size: 3rem;
+}
+
+/* Calculator Keys Grid Layout */
+.calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 columns of equal width */
+    gap: 10px; /* Adjust gap between keys as needed */
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-league-spartan);
+    font-size: var(--font-size-numbers);
+    padding: 1rem;
+}
+
+/* Key Styling */
+.key {
+    padding: 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: .33rem;
+    font-weight: var(--font-weight-bold); /* Ensuring bold font weight */
+    font-family: var(--font-family-league-spartan);
+}
+
+.key:nth-last-child(2),
+.key:nth-last-child(1) {
+    grid-column: span 2; /* Making the last two keys span two columns */
+}
+
+/* Specific Key Styles */
+.number {
+    background-color: var(--theme1-key-bg);
+}
+
+.equal {
+    background-color: var(--theme1-key-bg-red);
+}
+
+/* Responsive Design for Desktop Devices */
+@media (min-width: var(--desktop-width)) {
+    .element {
+        font-weight: bold; /* Adjustments for desktop, if necessary */
+    }
+}
